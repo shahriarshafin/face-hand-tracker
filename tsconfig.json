@@ -26,7 +26,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"app/page.jsx"
+		"app/page.tsx",
+		"components/hand-landmarks.jsx"
 	],
 	"exclude": ["node_modules"]
 }

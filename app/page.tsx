@@ -1,11 +1,9 @@
 import HandLandmarks from '@/components/hand-landmarks';
 
-export const Page = () => {
+export default function Home() {
 	return (
 		<>
 			<HandLandmarks />
 		</>
 	);
-};
-
-export default Page;
+}
