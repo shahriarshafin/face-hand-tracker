@@ -8,12 +8,6 @@ import {
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 
-const videoConstraints = {
-	width: 1280,
-	height: 720,
-	facingMode: 'user',
-};
-
 export default function HandLandmarks() {
 	const [poseData, setPoseData] = useState([]);
 	const webcamRef = useRef(null);
@@ -67,18 +61,26 @@ export default function HandLandmarks() {
 		const ctx = canvasRef.current.getContext('2d');
 		if (drawingUtilsRef.current) {
 			ctx.clearRect(0, 0, 1280, 720);
-			for (const hand of poseData) {
+			poseData.forEach((hand, index) => {
+				const handColor = index % 2 === 0 ? '#00FF00' : '#ff0000';
+				const handConnect = index % 2 === 0 ? '#ff0000' : '#00FF00';
+
 				drawingUtilsRef.current.drawConnectors(
 					hand,
 					HandLandmarker.HAND_CONNECTIONS,
-					{ color: '#00FF00', lineWidth: 5 }
+					{
+						color: handColor,
+						lineWidth: 5,
+					}
 				);
+
 				drawingUtilsRef.current.drawLandmarks(hand, {
-					radius: 4,
-					color: '#FF0000',
-					lineWidth: 2,
+					color: handColor,
+					radius: 10,
+					lineWidth: 4,
+					fillColor: handConnect,
 				});
-			}
+			});
 		}
 	}, [poseData]);
 
@@ -91,7 +93,11 @@ export default function HandLandmarks() {
 					mirrored
 					id='webcam'
 					audio={false}
-					videoConstraints={videoConstraints}
+					videoConstraints={{
+						width: 1280,
+						height: 720,
+						facingMode: 'user',
+					}}
 					ref={webcamRef}
 					className='absolute top-0 left-0 w-full h-full'
 				/>
@@ -103,21 +109,6 @@ export default function HandLandmarks() {
 					className='absolute top-0 left-0 w-full h-full'
 				></canvas>
 			</div>
-
-			{/* <div>
-				{poseData.map((hand, i) => (
-					<div key={i}>
-						<h2 className='text-2xl font-bold'>Hand {i + 1}</h2>
-						<ul>
-							{hand.map((landmark, j) => (
-								<li key={j}>
-									{landmark.x}, {landmark.y}, {landmark.z}
-								</li>
-							))}
-						</ul>
-					</div>
-				))}
-			</div> */}
 		</section>
 	);
 }
