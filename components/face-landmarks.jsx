@@ -19,7 +19,7 @@ export default function FaceLandmarks() {
 	useEffect(() => {
 		const createFaceLandmarker = async () => {
 			const vision = await FilesetResolver.forVisionTasks(
-				'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm'
+				'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm'
 			);
 			const faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
 				baseOptions: {
@@ -143,30 +143,30 @@ export default function FaceLandmarks() {
 					style={{ transform: 'rotateY(180deg)' }}
 					className='absolute top-0 left-0 w-full h-full'
 				></canvas>
+				<ul className='absolute top-0 right-0 '>
+					{blendShapes.length === 0 && <p>No blend shapes detected.</p>}
+					{blendShapes.map((blendShapeSet, index) => (
+						<div key={index}>
+							{blendShapeSet.categories.map((shape, shapeIndex) => (
+								<li key={shapeIndex} className='blend-shapes-item'>
+									<span className='blend-shapes-label'>
+										{shape.displayName || shape.categoryName}
+									</span>
+									<span
+										className='blend-shapes-value'
+										style={{
+											width: `calc(${shape.score * 100}% - 120px)`,
+											backgroundColor: 'red',
+										}}
+									>
+										{shape.score.toFixed(4)}
+									</span>
+								</li>
+							))}
+						</div>
+					))}
+				</ul>
 			</div>
-			{/* <ul>
-				{blendShapes.length === 0 && <p>No blend shapes detected.</p>}
-				{blendShapes.map((blendShapeSet, index) => (
-					<div key={index}>
-						{blendShapeSet.categories.map((shape, shapeIndex) => (
-							<li key={shapeIndex} className='blend-shapes-item'>
-								<span className='blend-shapes-label'>
-									{shape.displayName || shape.categoryName}
-								</span>
-								<span
-									className='blend-shapes-value'
-									style={{
-										width: `calc(${shape.score * 100}% - 120px)`,
-										backgroundColor: 'red',
-									}}
-								>
-									{shape.score.toFixed(4)}
-								</span>
-							</li>
-						))}
-					</div>
-				))}
-			</ul> */}
 		</section>
 	);
 }
