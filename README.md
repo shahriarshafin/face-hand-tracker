@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href="https://face-hand-tracker.vercel.app/">
+  <img  src="public/thumbnail.png">
+  <h1 align="center">Face - Hand Tracker</h1>
+</a>
 
-## Getting Started
+<p align="center">
+  An open-source real-time face and hand landmark detection using Mediapipe in a Next.js application
+</p>
 
-First, run the development server:
+**On-device machine learning for everyone**
+
+Delight your customers with innovative machine learning features. MediaPipe
+contains everything that you need to customize and deploy to mobile (Android,
+iOS), web, desktop, edge devices, and IoT, effortlessly.
+
+## Set up and run
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+https://github.com/shahriarshafin/face-hand-tracker.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Change the working directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd face-hand-tracker
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install dependencies
 
-## Learn More
+```bash
+npm install # or, yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the app in development mode
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev # or, yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+That's All! Now open [localhost:3000](http://localhost:3000/) to see the app.
 
-## Deploy on Vercel
+- [See more demos](https://goo.gle/mediapipe-studio)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Get started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can get started with MediaPipe Solutions by by checking out any of the
+developer guides for
+[vision](https://developers.google.com/mediapipe/solutions/vision/object_detector),
+[text](https://developers.google.com/mediapipe/solutions/text/text_classifier),
+and
+[audio](https://developers.google.com/mediapipe/solutions/audio/audio_classifier)
+tasks. If you need help setting up a development environment for use with
+MediaPipe Tasks, check out the setup guides for
+[Android](https://developers.google.com/mediapipe/solutions/setup_android), [iOS](https://ai.google.dev/edge/mediapipe/solutions/setup_ios), [Web
+apps](https://developers.google.com/mediapipe/solutions/setup_web), and
+[Python](https://developers.google.com/mediapipe/solutions/setup_python).
+
+## Solutions
+
+MediaPipe Solutions provides a suite of libraries and tools for you to quickly
+apply artificial intelligence (AI) and machine learning (ML) techniques in your
+applications. You can plug these solutions into your applications immediately,
+customize them to your needs, and use them across multiple development
+platforms. MediaPipe Solutions is part of the MediaPipe, so you can further customize the
+solutions code to meet your application needs.
+
+These libraries and resources provide the core functionality for each MediaPipe
+Solution:
+
+- **MediaPipe Tasks**: Cross-platform APIs and libraries for deploying
+  solutions. [Learn
+  more](https://developers.google.com/mediapipe/solutions/tasks).
+- **MediaPipe models**: Pre-trained, ready-to-run models for use with each
+  solution.
+
+These tools let you customize and evaluate solutions:
+
+- **MediaPipe Model Maker**: Customize models for solutions with your data.
+  [Learn more](https://developers.google.com/mediapipe/solutions/model_maker).
+- **MediaPipe Studio**: Visualize, evaluate, and benchmark solutions in your
+  browser. [Learn
+  more](https://developers.google.com/mediapipe/solutions/studio).
+
+## License
+
+This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) file for details.
